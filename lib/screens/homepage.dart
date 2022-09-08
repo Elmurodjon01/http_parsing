@@ -4,7 +4,7 @@ import 'package:http_parsing/model/emplist.dart';
 import 'package:http_parsing/screens/detail_page.dart';
 import 'package:http_parsing/services/http_service.dart';
 
-import '../model/employee.dart';
+import '../model/employee_model.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});

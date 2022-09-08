@@ -1,4 +1,4 @@
-import 'package:http_parsing/model/employee.dart';
+import 'package:http_parsing/model/employee_model.dart';
 
 
 class EmpList {
