@@ -1,15 +1,15 @@
-import 'delete_employee_model.dart';
+import 'create_model.dart';
 
 class CreateApi {
   String status;
   String message;
-  DeleteEmployee data;
+  CreateEmployee data;
 
 
   CreateApi.fromJson(Map<String,dynamic> json)
       : status = json['status'],
         message = json['message'],
-        data = DeleteEmployee.fromJson(json['data']);
+        data = CreateEmployee.fromJson(json['data']);
 
 
   Map<String,dynamic> toJson() => {

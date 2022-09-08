@@ -1,17 +1,17 @@
 
-class DeleteEmployee{
+class CreateEmployee{
   String name;
   int salary;
   int age;
   int id;
-  DeleteEmployee({
+  CreateEmployee({
     required this.id,
     required this.salary,
     required this.age,
     required this.name,
   });
 
-  DeleteEmployee.fromJson(Map<String, dynamic> json)
+  CreateEmployee.fromJson(Map<String, dynamic> json)
       : id = json['id'],
         salary = json['salary'],
         age = json['age'],
