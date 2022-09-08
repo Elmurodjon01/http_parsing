@@ -65,7 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget ItemOfList(Employee item){
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, DetailPage.id);
+        Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+          return DetailPage(response: '${item.employee_name} (${item.employee_age.toString()})', salary: '${item.employee_salary}\$',);
+        }));
       },
       child: Container(
         padding: const EdgeInsets.all(20),

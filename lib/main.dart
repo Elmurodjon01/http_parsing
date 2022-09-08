@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'screens/homepage.dart';
-import 'screens/detail_page.dart';
 void main() {
   runApp(MyApp());
 }
@@ -16,7 +15,6 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
       routes: {
         MyHomePage.id: (context) => MyHomePage(),
-    DetailPage.id: (context) => DetailPage(),
       },
     );
   }
