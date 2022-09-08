@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'homepage.dart';
-
+import 'screens/homepage.dart';
+import 'screens/detail_page.dart';
 void main() {
   runApp(MyApp());
 }
@@ -14,6 +14,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
+      routes: {
+        MyHomePage.id: (context) => MyHomePage(),
+    DetailPage.id: (context) => DetailPage(),
+      },
     );
   }
 }

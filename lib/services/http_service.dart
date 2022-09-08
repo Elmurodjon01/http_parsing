@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:http_parsing/model/emplist.dart';
 
+import '../model/empOne.dart';
 import '../model/user.dart';
 
 class Net {
@@ -23,9 +24,8 @@ class Net {
     if (response.statusCode == 200) {
       return response.body;
     }
-    null;
+    return null;
   }
-
   static Future<String?> POST(String api, Map<String, String> params) async {
     var uri = Uri.https(base, api);
     var response = await post(uri, headers: headers, body: jsonEncode(params));
@@ -55,12 +55,14 @@ class Net {
 
   //http params
   static Map<String, String> paramsEmpty() {
-    Map<String, String> params = Map();
+    Map<String, String> params = {};
     return params;
   }
 
   static Map<String, String> paramsCreate(User user) {
-    Map<String, String> params = Map();
+    //try to convert empty map type to map literal, not params = Map(), but just {} is fine,
+    //defining the map type with params = Map() may cause a null
+    Map<String, String> params = {};
     params.addAll({
       'name': user.name,
       'salary': user.salary,
@@ -70,7 +72,7 @@ class Net {
   }
 
   static Map<String, String> paramsUpdate(User user) {
-    Map<String, String> params = Map();
+    Map<String, String> params = {};
     params.addAll({
       'name': user.name,
       'salary': user.salary,
@@ -80,9 +82,15 @@ class Net {
   }
 
   //parsing
-  static Emplist parseEmplist(String response) {
-    dynamic json = jsonDecode(response);
-    var data = Emplist.fromJson(json);
+  static EmpList parseEmpList(String response){
+    dynamic json=jsonDecode(response);
+    var data = EmpList.fromJson(json);
+    return data;
+  }
+  static EmpOne parseEmpOne(String response){
+    dynamic json=jsonDecode(response);
+    var data = EmpOne.fromJson(json);
     return data;
   }
 }
+
